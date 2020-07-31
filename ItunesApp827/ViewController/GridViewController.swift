@@ -12,7 +12,7 @@ class GridViewController: UIViewController {
 
     @IBOutlet weak var gridCollectionView: UICollectionView!
     
-    //implicit unwrap - dependency injection
+
     var viewModel = ViewModel() {
         didSet {
             DispatchQueue.main.async {

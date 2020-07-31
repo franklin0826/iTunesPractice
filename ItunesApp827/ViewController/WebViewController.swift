@@ -39,7 +39,7 @@ class WebViewController: UIViewController {
         guard let url = URL(string:"https://google.com") else { return }
         
         let request = URLRequest(url: url)
-        webView.load(request) //load a website
+        webView.load(request)
         
         webView.navigationDelegate = self
         webView.uiDelegate = self

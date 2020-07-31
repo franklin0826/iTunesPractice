@@ -9,7 +9,6 @@
 import UIKit
 
 class TrackTableCellOne: UITableViewCell {
-    //implicit/explicit unwrap should only be done when you are one of two things: 1. 100% sure that the value is there, 2. You WANT the application to crash if it's not there
     
     @IBOutlet weak var trackAlbumImage: UIImageView!
     @IBOutlet weak var trackAlbumPrice: UIButton!
@@ -19,19 +18,17 @@ class TrackTableCellOne: UITableViewCell {
     
     static let identifier = "TrackTableCellOne"
     
-    /*
-    var optional: Int?
-    let value = optional! //explicit unwrap
-    */
     
-    var album: Album! {
+    var album: Album? {
         didSet {
-            let price = album.price ?? 0.00
+            guard let price = album?.price ?? nil else {
+                return
+            }
             trackAlbumPrice.setTitle("$\(price)", for: .normal)
-            trackCountLabel.text = "\(album.trackCount) tracks"
-            trackAlbumArtist.text = album.artist
-            trackAlbumName.text = album.title
-            album.getImage { [weak self] img in
+            trackCountLabel.text = "\(album?.trackCount ?? 0) tracks"
+            trackAlbumArtist.text = album?.artist
+            trackAlbumName.text = album?.title
+            album?.getImage { [weak self] img in
                 self?.trackAlbumImage.image = img
             }
         }

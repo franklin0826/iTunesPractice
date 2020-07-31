@@ -14,13 +14,6 @@ protocol TrackDelegate: class {
 
 class ViewModel {
     
-    /*ViewModel - main goal is to only allow the view controller to worry about the views
-     1. Data
-     2. Service Calls
-     3. Business Logic
-     4. Data Binding - connecting a view to a data source - Property Observer & Communication Pattern
-    */
-    
     weak var delegate: TrackDelegate?
     
     var albums = [Album]() {

@@ -14,7 +14,7 @@ class DetailViewController: UIViewController {
     
     var viewModel: ViewModel!
     var audioPlayer: AVAudioPlayer!
-    var previousSelected: Int? //optional - could be nil
+    var previousSelected: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,6 @@ class DetailViewController: UIViewController {
         
         let track = viewModel.tracks[sender.tag]
         
-        //check if its the fist time we tapped the play button - check if same button is tapped twice
         if previousSelected != nil && sender.tag != previousSelected {
             detailTableView.reloadRows(at: [IndexPath(row: previousSelected!, section: 1)], with: .top)
         }

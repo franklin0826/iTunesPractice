@@ -40,7 +40,6 @@ class MainViewController: UIViewController {
     
 }
 
-//UISearchBarDelegate
 
 extension MainViewController: UISearchBarDelegate {
     
